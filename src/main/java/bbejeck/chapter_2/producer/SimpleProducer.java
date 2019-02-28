@@ -2,11 +2,7 @@ package bbejeck.chapter_2.producer;
 
 import bbejeck.chapter_2.partitioner.PurchaseKeyPartitioner;
 import bbejeck.model.PurchaseKey;
-import org.apache.kafka.clients.producer.Callback;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.clients.producer.*;
 
 import java.util.Date;
 import java.util.Properties;
@@ -21,8 +17,6 @@ import java.util.concurrent.Future;
 public class SimpleProducer {
 
 
-
-    public static void main(String[] args) {
 
     public static void main(String[] args) {
 
