@@ -24,9 +24,11 @@ public class SimpleProducer {
 
     public static void main(String[] args) {
 
+    public static void main(String[] args) {
+
         Properties properties = new Properties();
         properties.put("bootstrap.servers", "localhost:9092");
-        properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        properties.put("key.serializer", "bbejeck.chapter_2.producer.PurchaseKeySerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("acks", "1");
         properties.put("retries", "3");
@@ -37,7 +39,7 @@ public class SimpleProducer {
         PurchaseKey key = new PurchaseKey("12334568", new Date());
 
         try(Producer<PurchaseKey, String> producer = new KafkaProducer<>(properties)) {
-            ProducerRecord<PurchaseKey, String> record = new ProducerRecord<>("some-topic", key, "value");
+            ProducerRecord<PurchaseKey, String> record = new ProducerRecord<>("test-topic", key, "hej");
 
             Callback callback = (metadata, exception) -> {
                 if (exception != null) {
@@ -49,6 +51,7 @@ public class SimpleProducer {
         }
 
     }
+
 
 
 }
